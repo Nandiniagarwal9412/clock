@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        .container{
+            background-image: url(analogue.png);
+            background-position: center center ;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-attachment: fixed;
+            height:100vh;
+            background-color: #2196F3;
+        }
+      h1{
+        text-align: center;
+        color:white;
+      }
+       
+            .clockContainer{
+            position: relative;
+
+        }
+        #hourHand,#minuteHand,#secondHand{
+position: absolute;
+background-color: black;
+border-radius: 10px;
+transform-origin: bottom;
+}
+@media(max-width:321px) and (min-width:319px){
+    #hourHand{
+        height:80px;
+        width:10px;
+        top:325px;
+        left:150px;
+        background-color: red;
+        /* opacity:0; */
+    }
+    #minuteHand{
+        height:100px;
+        width:8px;
+        top:310px;
+        left:150px;
+        background-color: yellow;
+    }
+    #secondHand{
+        height:110px;
+        width:5px;
+        top:295px;
+        left:150px;
+        background-color: green;
+    }
+}
+@media(max-width:481px) and (min-width:479px){
+    #hourHand{
+        height:80px;
+        width:10px;
+        top:320px;
+        left:235px;
+        background-color: red;
+        /* opacity:0; */
+    }
+    #minuteHand{
+        height:100px;
+        width:8px;
+        top:300px;
+        left:235px;
+        background-color: yellow;
+    }
+    #secondHand{
+        height:110px;
+        width:5px;
+        top:285px;
+        left:235px;
+        background-color: green;
+    }
+}
+@media(max-width:601px) and (min-width:599px){
+    #hourHand{
+        height:90px;
+        width:10px;
+        top:195px;
+        left:290px;
+        background-color: red;
+        /* opacity:0; */
+    }
+    #minuteHand{
+        height:110px;
+        width:8px;
+        top:170px;
+        left:290px;
+        background-color: yellow;
+    }
+    #secondHand{
+        height:120px;
+        width:5px;
+        top:160px;
+        left:290px;
+        background-color: green;
+    }
+}
+@media(max-width:769px) and (min-width:767px){
+    #hourHand{
+        height:80px;
+        width:10px;
+        top:200px;
+        left:370px;
+        background-color: red;
+        /* opacity:0; */
+    }
+    #minuteHand{
+        height:120px;
+        width:8px;
+        top:153px;
+        left:370px;
+        background-color: yellow;
+    }
+    #secondHand{
+        height:120px;
+        width:5px;
+        top:160px;
+        left:380px;
+        background-color: green;
+    }
+}
+@media(max-width:801px) and (min-width:799px){
+    #hourHand{
+        height:80px;
+        width:10px;
+        top:273px;
+        left:355px;
+        background-color: red;
+        /* opacity:0; */
+    }
+    #minuteHand{
+        height:100px;
+        width:8px;
+        top:193px;
+        left:400px;
+        background-color: yellow;
+    }
+    #secondHand{
+        height:110px;
+        width:5px;
+        top:175px;
+        left:390px;
+        background-color: green;
+    }
+}
+@media(max-width:1025px) and (min-width:1023px){
+    #hourHand{
+        height:80px;
+        width:10px;
+        top:375px;
+        left:460px;
+        background-color: red;
+        /* opacity:0; */
+    }
+    #minuteHand{
+        height:100px;
+        width:8px;
+        top:293px;
+        left:500px;
+        background-color: yellow;
+    }
+    #secondHand{
+        height:110px;
+        width:5px;
+        top:275px;
+        left:500px;
+        background-color: green;
+    }
+}
+@media(max-width:1281px) and (min-width:1279px){
+    #hourHand{
+        height:90px;
+        width:10px;
+        top:382px;
+        left:580px;
+        background-color: red;
+        /* opacity:0; */
+    }
+    #minuteHand{
+        height:120px;
+        width:8px;
+        top:290px;
+        left:630px;
+        background-color: yellow;
+    }
+    #secondHand{
+        height:110px;
+        width:5px;
+        top:300px;
+        left:630px;
+        background-color: green;
+    }
+}
+@media(max-width:1441px) and (min-width:1439px){
+    #hourHand{
+        height:130px;
+        width:10px;
+        top:348px;
+        left:700px;
+        background-color: red;
+        /* opacity:0; */
+    }
+    #minuteHand{
+        height:150px;
+        width:8px;
+        top:330px;
+        left:705px;
+        background-color: yellow;
+    }
+    #secondHand{
+        height:150px;
+        width:5px;
+        top:325px;
+        left:710px;
+        background-color: green;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <div class="clockContainer">
+            <div id="hourHand"></div>
+            <div id="minuteHand"></div>
+            <div id="secondHand"></div>
+            <h1>DIGITAL CLOCK</h1>
+        </div>
+       
+    </div>
+    <script>
+        setInterval(
+            ()=>{
+                d=new Date();
+                htime=d.getHours();
+                mtime=d.getMinutes();
+                stime=d.getSeconds();
+                hrotation=30*htime+mtime/2;
+                mrotation=6*mtime;
+                srotation=6*stime;
+                hourHand.style.transform=`rotate(${hrotation}deg)`
+                minuteHand.style.transform=`rotate(${mrotation}deg)`
+                secondHand.style.transform=`rotate(${srotation}deg)`
+            },1000
+        )
+    </script>
+</body>
+</html>
